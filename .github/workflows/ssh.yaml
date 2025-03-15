@@ -1,4 +1,4 @@
-name: debugger-action
+name: aws-ssh
 on:
   workflow_dispatch:
 jobs:
