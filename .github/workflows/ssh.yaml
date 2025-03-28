@@ -6,8 +6,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions: 
-       contents: write
+    permissions: write-all
       # pull-requests: write
       # issues: write
       # actions: read # 如果需要读取其他artifact，可能还需要为actions设置read权限
